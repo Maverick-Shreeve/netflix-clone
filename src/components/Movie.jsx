@@ -9,14 +9,14 @@ const Movie = ({ item }) => {
   const [saved, setSaved] = useState(false);
   const { user } = UserAuth();
 
-  const movieID = doc(db, 'users', `${user?.email}`);
+  const movieID = doc(db, 'users', `${user?.email}`);  // grabs specific users email
 
   const saveShow = async () => {
-    if (user?.email) {
+    if (user?.email) { // only runs if user is logged in
       setLike(!like);
       setSaved(true);
       await updateDoc(movieID, {
-        savedShows: arrayUnion({
+        savedShows: arrayUnion({ // array union is used in firebase for daving
           id: item.id,
           title: item.title,
           img: item.backdrop_path,

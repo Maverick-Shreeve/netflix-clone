@@ -5,11 +5,11 @@ import { UserAuth } from '../context/AuthContext';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('') // notifies user if they mess up login info
+  const [error, setError] = useState('')
   const { user, logIn } = UserAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => { // put all comments for this code in signup page since its mostly the same
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('')
     try {
